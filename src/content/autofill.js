@@ -992,23 +992,3 @@
     /*
     End 1Password Extension
     */
-
-    chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-        if (msg.command === 'collectPageDetails') {
-            var pageDetails = collect(document);
-            var pageDetailsObj = JSON.parse(pageDetails);
-            chrome.runtime.sendMessage({
-                command: 'collectPageDetailsResponse',
-                tab: msg.tab,
-                details: pageDetailsObj,
-                sender: msg.sender
-            });
-            sendResponse();
-            return true;
-        }
-        else if (msg.command === 'fillForm') {
-            fill(document, msg.fillScript);
-            sendResponse();
-            return true;
-        }
-    });
