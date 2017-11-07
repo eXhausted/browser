@@ -1,4 +1,3 @@
-﻿!(function () {
     /*
     1Password Extension
 
@@ -1013,4 +1012,3 @@
             return true;
         }
     });
-})();
